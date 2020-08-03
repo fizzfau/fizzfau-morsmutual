@@ -5,12 +5,12 @@ Simple Mors Mutual Script Used With esx_advancedgarage
 
 You need to change some functions and add some events in esx_advancedgarage as I publish here
 
-RegisterNetEvent('fizzfau-openGarageMenu')
-AddEventHandler("fizzfau-openGarageMenu", function()
-    OpenMenuGarage('fizzfau')
-end)
+	RegisterNetEvent('fizzfau-openGarageMenu')
+	AddEventHandler("fizzfau-openGarageMenu", function()
+	    OpenMenuGarage('fizzfau')
+	end)
 
-function OpenMenuGarage(PointType)
+        function OpenMenuGarage(PointType)
 	ESX.UI.Menu.CloseAll()
 	
 	local elements = {}
@@ -85,13 +85,13 @@ function OpenMenuGarage(PointType)
 	end, function (data, menu)
 		menu.close()
 	end)
-end
+	end
 
-function ListOwnedCarsMenu(fizzfau)
-	local elements = {
-		{label = _U('spacer3')},
-		{label = _U('spacer1')}
-	}
+	function ListOwnedCarsMenu(fizzfau)
+		local elements = {
+			{label = _U('spacer3')},
+			{label = _U('spacer1')}
+		}
 	
 	ESX.TriggerServerCallback('esx_advancedgarage:getOwnedCars', function(ownedCars)
 		if #ownedCars == 0 then
@@ -150,13 +150,13 @@ function ListOwnedCarsMenu(fizzfau)
 			menu.close()
 		end)
 	end)
-end
+	end
 
-function ReturnOwnedCarsMenu(fizzfau)
-	ESX.TriggerServerCallback('esx_advancedgarage:getOutOwnedCars', function(ownedCars)
-		local elements = {
-			--{label = _U('spacer2'), value = 'spacer'}
-		}
+	function ReturnOwnedCarsMenu(fizzfau)
+		ESX.TriggerServerCallback('esx_advancedgarage:getOutOwnedCars', function(ownedCars)
+			local elements = {
+				--{label = _U('spacer2'), value = 'spacer'}
+			}
 		
 		for _,v in pairs(ownedCars) do
 			if Config.UseVehicleNamesLua == true then
