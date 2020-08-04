@@ -76,6 +76,11 @@ function SpawnVehicle(vehicle, plate)
 			ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
 			SetVehRadioStation(callback_vehicle, "OFF")
 			fizzPed = CreatePedInsideVehicle(callback_vehicle, 26, driverhash, -1, true, false) 
+			SetBlockingOfNonTemporaryEvents(fizzPed, true) -- değiştirmeyin / do not touch
+			SetPedDiesWhenInjured(fizzPed, false) -- pedin ölümlü veya ölümsüz olmasını ayarlamak için / makes ped immortal
+			SetPedCanPlayAmbientAnims(fizzPed, true) -- değiştirmeyin / do not touch
+			SetPedCanRagdollFromPlayerImpact(fizzPed, false) --pedin yere düşmesini engellemek için / makes ped stil stand even get attacked
+			SetEntityInvincible(fizzPed, true)	-- pedin ölümsüz olması için / makes ped invincible
 			mechBlip = AddBlipForEntity(callback_vehicle)
 			SetBlipSprite(mechBlip, 225)                                                      	--Blip Spawning.
 			SetBlipFlashes(mechBlip, true) 
